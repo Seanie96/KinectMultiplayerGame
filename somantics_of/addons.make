@@ -1,0 +1,3 @@
+ofxOpenCv
+ofxThreadedImageLoader
+ofxVectorGraphics

@@ -1,0 +1,63 @@
+﻿  main.cpp
+  ofApp.cpp
+  ofxCvColorImage.cpp
+  ofxCvContourFinder.cpp
+  ofxCvFloatImage.cpp
+  ofxCvGrayscaleImage.cpp
+  ofxCvHaarFinder.cpp
+  ofxCvImage.cpp
+  ofxCvShortImage.cpp
+  ofxThreadedImageLoader.cpp
+  ofxVectorGraphics.cpp
+  CreEPS.cpp
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(341): warning C4305: '=': truncation from 'double' to 'float'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(350): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(354): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(361): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(368): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(635): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(647): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(648): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(727): warning C4996: 'ns_creeps::strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'ns_creeps::strncpy'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(925): warning C4244: '=': conversion from 'const ns_creeps::CreEPS_INT' to 'float', possible loss of data
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(931): warning C4305: '*=': truncation from 'double' to 'float'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(939): warning C4305: 'initializing': truncation from 'double' to 'float'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(996): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(1006): warning C4996: 'ns_creeps::strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'ns_creeps::strcpy'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(1011): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(1075): warning C4996: 'ns_creeps::ctime': This function or variable may be unsafe. Consider using ctime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\time.h(475): note: see declaration of 'ns_creeps::ctime'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(1251): warning C4305: 'argument': truncation from 'double' to 'const ns_creeps::CreEPS_FLOAT'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(1240): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(2010): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1465): note: see declaration of 'vsprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(2028): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1465): note: see declaration of 'vsprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(2044): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1465): note: see declaration of 'vsprintf'
+..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxVectorGraphics\libs\CreEPS.cpp(2061): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1465): note: see declaration of 'vsprintf'
+videoInputD.lib(videoInput.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+     Creating library bin\somantics_of_debug.lib and object bin\somantics_of_debug.exp
+  somantics_of.vcxproj -> C:\Users\gordo\OneDrive\Documents\GitHub\KinectMultiplayerGame\somantics_of\bin\somantics_of_debug.exe
+  somantics_of.vcxproj -> bin\somantics_of_debug.pdb (Full PDB)
+  
+  	                   9	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\
+  	    New File  		 2939392	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\assimp.dll
+  	    New File  		 1266176	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\fmodex.dll
+  	    New File  		 1312768	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\fmodexL.dll
+  	    New File  		 5647872	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\FreeImage.dll
+  	    New File  		  580608	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\freetype.dll
+  	    New File  		  237568	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\glut32.dll
+  	    New File  		 1178624	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\libeay32.dll
+  	    New File  		  269824	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\ssleay32.dll
+  	    New File  		   69632	C:\Users\gordo\OneDrive\Documents\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\Zlib.dll
