@@ -1,4 +1,16 @@
 ﻿  main.cpp
   ofApp.cpp
-c:\users\gordo\documents\github\kinectmultiplayergame\kinectbodyindex\src\ofApp.h(4): fatal error C1083: Cannot open include file: 'ofxKinectForWindows2.h': No such file or directory (compiling source file src\main.cpp)
-c:\users\gordo\documents\github\kinectmultiplayergame\kinectbodyindex\src\ofApp.h(4): fatal error C1083: Cannot open include file: 'ofxKinectForWindows2.h': No such file or directory (compiling source file src\ofApp.cpp)
+     Creating library bin\KinectBodyIndex_debug.lib and object bin\KinectBodyIndex_debug.exp
+  KinectBodyIndex.vcxproj -> C:\openframeworks\of_v0.9.8_vs_release\apps\myApps\KinectMultiplayerGame\KinectBodyIndex\bin\KinectBodyIndex_debug.exe
+  KinectBodyIndex.vcxproj -> bin\KinectBodyIndex_debug.pdb (Full PDB)
+  
+  	                   9	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\
+  	    New File  		 2939392	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\assimp.dll
+  	    New File  		 1266176	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\fmodex.dll
+  	    New File  		 1312768	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\fmodexL.dll
+  	    New File  		 5647872	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\FreeImage.dll
+  	    New File  		  580608	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\freetype.dll
+  	    New File  		  237568	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\glut32.dll
+  	    New File  		 1178624	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\libeay32.dll
+  	    New File  		  269824	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\ssleay32.dll
+  	    New File  		   69632	C:\openframeworks\of_v0.9.8_vs_release\export\vs\Win32\Zlib.dll

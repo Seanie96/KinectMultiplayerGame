@@ -49,23 +49,23 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../OneDrive/Documents/openframeworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-    <Import Project="..\..\..\..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="..\..\..\..\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../OneDrive/Documents/openframeworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
-    <Import Project="..\..\..\..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+    <Import Project="..\..\..\..\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../OneDrive/Documents/openframeworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-    <Import Project="..\..\..\..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="..\..\..\..\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="../../../../OneDrive/Documents/openframeworks/of_v0.9.8_vs_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
-    <Import Project="..\..\..\..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
+    <Import Project="../../../../libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+    <Import Project="..\..\..\..\addons\ofxKinectForWindows2\ofxKinectForWindows2.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -99,6 +99,7 @@
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
@@ -184,9 +185,8 @@
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
       <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\openframeworks\of_v0.9.8_vs_release\addons\ofxKinectForWindows2\ofxKinectForWindows2Lib\ofxKinectForWindows2Lib.vcxproj">
+    <ProjectReference Include="..\..\..\..\addons\ofxKinectForWindows2\ofxKinectForWindows2Lib\ofxKinectForWindows2Lib.vcxproj">
       <Project>{f6008d6a-6d39-4b68-840e-e7ac8ed855da}</Project>
-      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
