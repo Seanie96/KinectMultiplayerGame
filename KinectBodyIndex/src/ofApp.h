@@ -29,6 +29,5 @@ public:
 	vector<ofVec2f> colorCoords;
 	int numBodiesTracked;
 	bool bHaveAllStreams;
-
 };
 
