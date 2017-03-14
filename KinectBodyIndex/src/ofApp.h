@@ -21,13 +21,21 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+	//ofSoundPlayer sounds;
 
 	ofxKFW2::Device kinect;
-	ICoordinateMapper* coordinateMapper;
+	ICoordinateMapper * coordinateMapper;
 
 	ofImage bodyIndexImg, foregroundImg;
 	vector<ofVec2f> colorCoords;
 	int numBodiesTracked;
 	bool bHaveAllStreams;
-};
 
+	ofFbo paintedObjects;
+	bool drawImage;
+	ofTexture image;
+
+protected:
+	void drawCircles(HandState state, ofVec2f pos);
+	map<HandState, ofVec2f> handPositions;
+};

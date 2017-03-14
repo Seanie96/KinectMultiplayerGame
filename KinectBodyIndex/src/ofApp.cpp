@@ -1,4 +1,6 @@
 #include "ofApp.h"
+#include <iostream>
+#include <string>
 
 int previewWidth = 640;
 int previewHeight = 480;
@@ -12,7 +14,15 @@ void ofApp::setup() {
 	kinect.initBodySource();
 	kinect.initBodyIndexSource();
 
-	ofSetWindowShape(previewWidth * 2, previewHeight * 2);
+	ofSetWindowShape(previewWidth, previewHeight);
+
+	drawImage = false;
+	paintedObjects.allocate(previewWidth, previewHeight);
+	paintedObjects.begin();
+	ofClear(255, 255, 255);
+	paintedObjects.end();
+
+
 }
 
 //--------------------------------------------------------------
@@ -20,60 +30,79 @@ void ofApp::update() {
 	kinect.update();
 
 	//--
-	//Getting joint positions (skeleton tracking)
-	//--
-	//
-	{
-		auto bodies = kinect.getBodySource()->getBodies();
-		for (auto body : bodies) {
-			for (auto joint : body.joints) {
-				//now do something with the joints
-			}
-		}
-	}
-	//
-	//--
-
-
-
-	//--
 	//Getting bones (connected joints)
 	//--
-	//
-	{
-		// Note that for this we need a reference of which joints are connected to each other.
-		// We call this the 'boneAtlas', and you can ask for a reference to this atlas whenever you like
-		auto bodies = kinect.getBodySource()->getBodies();
-		auto boneAtlas = ofxKinectForWindows2::Data::Body::getBonesAtlas();
-
-		for (auto body : bodies) {
-			for (auto bone : boneAtlas) {
-				auto firstJointInBone = body.joints[bone.first];
-				auto secondJointInBone = body.joints[bone.second];
-
-				//now do something with the joints
-			}
-		}
+	//#
+	int numOfBodies = 0;
+	vector<ofxKFW2::Data::Body> bodies;
+	bodies = kinect.getBodySource()->getBodies();
+	for (auto body : bodies) {
+		numOfBodies++;
 	}
 	//
 	//--
+	handPositions.clear();
+	{
+		int w, h;
+		w = 1920;
+		h = 1080;
+		std::map<HandState, ofVec2f>::iterator it1 = handPositions.begin();
+
+		coordinateMapper = kinect.getBodySource()->getCoordinateMapper();
+
+		for (auto & body : bodies) {
+			if (!body.tracked) continue;
+
+			map<JointType, ofVec2f> jntsProj;
+
+			for (auto & j : body.joints) {
+				ofVec2f & p = jntsProj[j.second.getType()] = ofVec2f();
+
+				TrackingState state = j.second.getTrackingState();
+				if (state == TrackingState_NotTracked) continue;
+
+				p.set(j.second.getProjected(coordinateMapper, ofxKFW2::ProjectionCoordinates::ColorCamera));
+				p.x = 0 + p.x / w * previewWidth;
+				p.y = 0 + p.y / h * previewHeight;
+			}
+
+			drawCircles(body.leftHandState, jntsProj[JointType_HandLeft]);
+			drawCircles(body.rightHandState, jntsProj[JointType_HandRight]);
+		}
+
+	}
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	kinect.getDepthSource()->draw(0, 0, previewWidth, previewHeight);  // note that the depth texture is RAW so may appear dark
+	ofEnableAlphaBlending();
+	glClear(GL_DEPTH_BUFFER_BIT);
+	kinect.getColorSource()->draw(0, 0, previewWidth, previewHeight);
+	//kinect.getBodySource()->drawProjected(0, 0, previewWidth, previewHeight);
+	paintedObjects.draw(0, 0);
+	ofDisableAlphaBlending();
+}
 
-																	   // Color is at 1920x1080 instead of 512x424 so we should fix aspect ratio
-	float colorHeight = previewWidth * (kinect.getColorSource()->getHeight() / kinect.getColorSource()->getWidth());
-	float colorTop = (previewHeight - colorHeight) / 2.0;
-
-	kinect.getColorSource()->draw(previewWidth, 0 + colorTop, previewWidth, colorHeight);
-	kinect.getBodySource()->drawProjected(previewWidth, 0 + colorTop, previewWidth, colorHeight);
-
-	kinect.getInfraredSource()->draw(0, previewHeight, previewWidth, previewHeight);
-
-	kinect.getBodyIndexSource()->draw(previewWidth, previewHeight, previewWidth, previewHeight);
-	kinect.getBodySource()->drawProjected(previewWidth, previewHeight, previewWidth, previewHeight, ofxKFW2::ProjectionCoordinates::DepthCamera);
+void ofApp::drawCircles(HandState state, ofVec2f pos) {
+	ofColor color;
+	switch (state)
+	{
+	case HandState_Unknown: case HandState_NotTracked:
+		return;
+	case HandState_Open:
+		color = ofColor(0, 255, 0, 80);
+		break;
+	case HandState_Closed:
+		color = ofColor(255, 255, 0, 80);
+		break;
+	case HandState_Lasso:
+		color = ofColor(0, 255, 255, 80);
+		break;
+	}
+	paintedObjects.begin();
+	ofSetColor(color);
+	ofDrawCircle(pos, 25);
+	paintedObjects.end();
 }
 
 //--------------------------------------------------------------
@@ -130,5 +159,3 @@ void ofApp::mouseEntered(int x, int y) {
 void ofApp::mouseExited(int x, int y) {
 
 }
-
-
