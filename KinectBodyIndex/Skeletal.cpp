@@ -12,7 +12,7 @@ void Skeletal::setup(int width, int height) {
 	previewHeight = height;
 }
 
-vector<ofVec2f> Skeletal::gethandPositions(ofxKFW2::ProjectionCoordinates proj) {
+vector< pair<int, ofVec2f> > Skeletal::gethandPositions(ofxKFW2::ProjectionCoordinates proj) {
 	int numOfBodies = 0;
 	vector<ofxKFW2::Data::Body> bodies;
 	bodies = kinect.getBodySource()->getBodies();
@@ -27,7 +27,7 @@ vector<ofVec2f> Skeletal::gethandPositions(ofxKFW2::ProjectionCoordinates proj) 
 	h = 1080;
 
 	coordinateMapper = kinect.getBodySource()->getCoordinateMapper();
-
+	int i = 0;
 	for (auto & body : bodies) {
 		if (!body.tracked) continue;
 
@@ -43,8 +43,9 @@ vector<ofVec2f> Skeletal::gethandPositions(ofxKFW2::ProjectionCoordinates proj) 
 			p.x = 0 + p.x / w * previewWidth;
 			p.y = 0 + p.y / h * previewHeight;
 		}
-		handPositions.push_back(jntsProj[JointType_HandLeft]);
-		handPositions.push_back(jntsProj[JointType_HandRight]);
+		handPositions.push_back(pair<int, ofVec2f>(i, jntsProj[JointType_HandLeft]));
+		handPositions.push_back(pair<int, ofVec2f>(i, jntsProj[JointType_HandRight]));
+		i++;
 	}
 	return handPositions;
 }

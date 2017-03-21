@@ -1,12 +1,11 @@
-#ifndef Bubble_hpp
-#define Bubble_hpp
+#pragma once
 
 #include "ofMain.h"
 
 class Bubble {
 
 public:
-	Bubble();
+	Bubble(int width, int height, float rad);
 	void update(int);
 	void draw();
 	void reset();
@@ -14,14 +13,13 @@ public:
 	float get_x();
 	float get_y();
 	float get_radius();
-	int get_color();
-	const int colors[5] = { 0x00B2EE, 0x7dca5c, 0x65428a, 0xad804e, 0x191919 };
+	ofColor get_color();
+	const ofColor colors[5] = { ofColor(0, 0, 255, 255), ofColor(0, 255, 0, 255), ofColor(255, 0, 0, 255), ofColor(255, 255, 0, 255), ofColor(0, 255, 255, 255) };
 
 private:
-	float radius, x, y;
+	float radius, x, y, radi;
 	bool popped;
 	int speed;
-	int color;
+	ofColor color;
+	int previewWidth, previewHeight;
 };
-
-#endif
