@@ -5,7 +5,7 @@
 class Painter {
 public:
 	void setup(int width, int height);
-	void drawCircles(ofVec2f);
+	void drawCircles(ofVec2f, ofColor);
 	void draw();
 
 private:
