@@ -15,7 +15,6 @@ void ofApp::setup() {
 	previewWidth = GetSystemMetrics(SM_CXSCREEN);
 	previewHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	ofSetWindowShape(previewWidth, previewHeight);
 	skeletal.setup(previewWidth, previewHeight);	
 	painter.setup(previewWidth, previewHeight);
 

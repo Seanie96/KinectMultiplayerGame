@@ -13,7 +13,7 @@ Palette::Palette(int x, int y, int width, int height)
 {
 	palette_width = width;
 	palette_height = height;
-	color_radius = 40;
+	color_radius = width / 14;
 	palette_color = 0xFFFFFF;
 	palette_x = x;
 	palette_y = y;
@@ -33,8 +33,10 @@ void Palette::draw()
 	for (int i = 0; i < colors_on_palette.size(); i++)
 	{
 		ofSetColor(colors_on_palette[i]);
-		float circle_x = palette_x + color_radius + 50 + ((color_radius + 75) * i);
-		float circle_y = palette_y + color_radius + 10;
+		float circle_x = palette_x + (color_radius * 1.5) + ((color_radius * 2.5) * i);
+		float circle_y = palette_y + (color_radius * 1.2);
+		ofVec2f pos(circle_x, circle_y);
+		colorPositions.push_back(pair<ofVec2f, ofColor>(pos, colors_on_palette[i]));
 		ofDrawCircle(circle_x, circle_y, color_radius);
 	}
 	ofSetHexColor(0xFFFFFF);
@@ -54,23 +56,7 @@ void Palette::clear()
 	colors_on_palette.clear();
 }
 
-vector< pair<ofVec2f, ofColor> > Palette::getColorPositions() 
-{
-	int i = 0;
-	colorPositions.clear();
-	for (vector<ofColor>::iterator color = colors_on_palette.begin(); color != colors_on_palette.end(); ++color) {
-		float circle_x = palette_x + color_radius + 50 + ((color_radius + 75) * i++);
-		float circle_y = palette_y + color_radius + 10;
-		ofVec2f pos (circle_x, circle_y);
-		ofColor col (*color);
-		colorPositions.push_back(pair<ofVec2f, ofColor>(pos, col));
-	}
-	return colorPositions;
-}
-
-
 void Palette::getColorsChosen(vector< pair<int, ofVec2f>> handPositions) {
-	vector< pair<ofVec2f, ofColor> > colorPositions = getColorPositions();
 	for (vector< pair<int, ofVec2f> >::iterator it1 = handPositions.begin(); it1 != handPositions.end(); ++it1) {
 		for (vector< pair<ofVec2f, ofColor> >::iterator it2 = colorPositions.begin(); it2 != colorPositions.end(); ++it2) {
 			float handx = (it1->second).x;
@@ -109,6 +95,6 @@ void Palette::initalisePlayerColors(int size)
 {
 	for(int i = 0; i < size; i++)
 	{
-		playerColor.push_back(pair<int, ofColor>(i, ofColor(0, 0, 0, 255)));
+		playerColor.push_back(pair<int, ofColor>(i, ofColor(0, 0, 0, 125)));
 	}
 }
