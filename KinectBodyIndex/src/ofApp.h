@@ -1,7 +1,10 @@
 #pragma once
 
 #include "ofMain.h"
-#include "../addons/ofxKinectForWindows2/src/ofxKinectForWindows2.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Palette.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Bubble.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/SkeletalAPI/Skeletal.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Painter.h"
 
 class ofApp : public ofBaseApp {
 
@@ -21,13 +24,16 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+	void checkForCollision(vector< pair<int, ofVec2f> > positions);
+	
 
-	ofxKFW2::Device kinect;
-	ICoordinateMapper* coordinateMapper;
-
+protected:
+	Painter painter;
+	Skeletal skeletal;
+	ofSoundPlayer sounds;
 	ofImage bodyIndexImg, foregroundImg;
-	vector<ofVec2f> colorCoords;
-	int numBodiesTracked;
-	bool bHaveAllStreams;
+	//map<> colorCoords;
+	boolean beginPainting;
+	clock_t beginTime;
+	
 };
-
