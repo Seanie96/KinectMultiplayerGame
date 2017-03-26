@@ -31,7 +31,11 @@ void ofApp::setup() {
 	sounds.load("pop_sound.mp3");
 
 	beginPainting = false;
+	bubblesPopped = 0;
 	beginTime = clock();
+	int fontSize = previewHeight / 40;
+	group.loadFont("AYearWithoutRain.ttf", fontSize, true, true, 0);
+	group.setBackgroundColor(0x999999);
 }
 
 //--------------------------------------------------------------
@@ -55,6 +59,14 @@ void ofApp::update() {
 			painter.drawCircles(it->second, palette.getColorChosen(it->first));
 		}
 	}
+	value.set("Number of Bubbles Burst: ", bubblesPopped); // name, default value, min, max
+	group.setup();
+	group.add(value);
+
+	group.setPosition((previewWidth / 8) * 3, 0);
+	group.setDefaultHeight(previewHeight/14);
+	group.setDefaultWidth(previewWidth/4);
+	
 }
 
 //--------------------------------------------------------------
@@ -62,6 +74,7 @@ void ofApp::draw() {
 	ofEnableAlphaBlending();
 	glClear(GL_DEPTH_BUFFER_BIT);
 	skeletal.drawBodies();
+	group.draw();
 	if (beginPainting == true) {
 		painter.draw();
 	}
@@ -71,8 +84,8 @@ void ofApp::draw() {
 			bubbles[i].draw();
 		}
 	}
-	ofDisableAlphaBlending();
 	palette.draw();
+	ofDisableAlphaBlending();
 }
 
 void ofApp::checkForCollision(vector< pair<int, ofVec2f>> positions) {
@@ -82,14 +95,12 @@ void ofApp::checkForCollision(vector< pair<int, ofVec2f>> positions) {
 		float y = pos.y;
 		for (int i = 0; i < bubbles.size(); i++)
 		{
-			float bub_x = bubbles[i].get_x();
-			float bub_y = bubbles[i].get_y();
-			float rad = bubbles[i].get_radius();
-			if ((x < bub_x + rad && x > bub_x - rad) && (y < bub_y + rad && y > bub_y - rad))
+			if(bubbles[i].has_been_popped(x, y))
 			{
-				bubbles[i].pop();
 				sounds.play();
 				palette.add_color(bubbles[i].get_color());
+				bubblesPopped++;
+				cout << "bubbles popped:" << bubblesPopped << endl;
 			}
 		}
 	}

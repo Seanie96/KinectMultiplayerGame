@@ -1,4 +1,4 @@
-#include "painter.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Painter.h"
 
 void Painter::setup(int width, int height) {
 	previewWidth = width;
@@ -9,12 +9,10 @@ void Painter::setup(int width, int height) {
 	canvas.end();
 }
 
-void Painter::drawCircles(ofVec2f pos) {
-	ofColor color;
-	color = ofColor(0, 255, 0, 80);
+void Painter::drawCircles(ofVec2f pos, ofColor col) {
 	canvas.begin();
-	ofSetColor(color);
-	ofDrawCircle(pos, 25);
+	ofSetColor(col);
+	ofDrawCircle(pos, 35);
 	canvas.end();
 }
 

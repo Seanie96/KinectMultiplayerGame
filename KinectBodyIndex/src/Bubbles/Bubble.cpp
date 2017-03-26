@@ -1,4 +1,4 @@
-#include "Bubble.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Bubble.h"
 
 using std::rand;
 
@@ -8,15 +8,20 @@ Each new instance has a randomised speed,
 radius, x position and y position (within
 the bounds of the sreeen).
 */
-Bubble::Bubble()
+Bubble::Bubble(int width, int height, float rad)
 {
+	previewHeight = height;
+	previewWidth = width;
+	radi = rad;
+
 	speed = rand() % (3 - 1) + 1;
-	radius = rand() % (35 - 30) + 30;
-	x = rand() % (1920 - 1) + 1;
-	y = rand() % (1080 - 250) + 250;
+	radius = rand() % (35 - 30) + radi;
+	x = rand() % (previewWidth - 1) + 1;
+	y = rand() % (previewHeight - 250) + 250;
 	popped = false;
 	int color_index = rand() % 5;
 	color = colors[color_index];
+	times_enhanced = 0;
 }
 
 void Bubble::update(int i)
@@ -35,20 +40,48 @@ void Bubble::update(int i)
 	}
 
 	//Reset the bubble if it goes out of bounds
-	if (y < 0 - radius || x < 0 - radius || x > 1920 + radius)
+	if (y < 0 - radius || x < 0 - radius || x > previewWidth + radius)
 	{
 		reset();
 	}
+}
 
-	if (popped)
+bool Bubble::has_been_popped(float x_hand, float y_hand)
+{
+	if(!popped)
 	{
-		pop();
+		if ((x_hand < x + radius && x_hand > x - radius) && (y_hand < y + radius && y_hand > y - radius))
+		{
+			popped = true;
+			return true;
+		}
+		return false;
 	}
+	else
+	{
+		if(times_enhanced < 5)
+		{
+			enhance();
+		}
+		else 
+		{
+			times_enhanced = 0;
+			popped = false;
+			reset();
+		}
+		return false;
+	}
+}
+
+void Bubble::enhance()
+{
+	times_enhanced++;
+	radius += 3;
 }
 
 void Bubble::draw()
 {
-	ofSetHexColor(color);
+	ofSetColor(color);
 	ofDrawCircle(x, y, radius);
 }
 
@@ -60,29 +93,15 @@ but quicker.
 void Bubble::reset()
 {
 	speed = rand() % (3 - 1) + 1;
-	radius = rand() % (35 - 30) + 30;
-	x = rand() % (1920 - 1) + 1;
+	radius = rand() % (35 - 30) + radi;
+	x = rand() % (previewWidth - 1) + 1;
 	//Y position not randomised this time, want it to appear from the bottom
-	y = 1080;
+	y = previewHeight;
 	int color_index = rand() % 5;
 	color = colors[color_index];
 }
 
-void Bubble::pop()
-{
-	popped = true;
-	if (radius < 40)
-	{
-		radius += 3;
-	}
-	else
-	{
-		popped = false;
-		reset();
-	}
-}
-
-int Bubble::get_color() { return color; }
+ofColor Bubble::get_color() { return color; }
 
 float Bubble::get_x() { return x; }
 
