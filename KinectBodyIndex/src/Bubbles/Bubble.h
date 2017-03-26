@@ -6,10 +6,11 @@ class Bubble {
 
 public:
 	Bubble(int width, int height, float rad);
+	bool has_been_popped(float x, float y);
+	void enhance();
 	void update(int);
 	void draw();
 	void reset();
-	void pop();
 	float get_x();
 	float get_y();
 	float get_radius();
@@ -17,6 +18,7 @@ public:
 	const ofColor colors[5] = { ofColor(0, 0, 255, 125), ofColor(0, 255, 0, 125), ofColor(255, 0, 0, 125), ofColor(255, 255, 0, 125), ofColor(0, 255, 255, 125) };
 
 private:
+	int times_enhanced;
 	float radius, x, y, radi;
 	bool popped;
 	int speed;

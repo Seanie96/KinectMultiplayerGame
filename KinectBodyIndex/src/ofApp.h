@@ -5,6 +5,7 @@
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Bubble.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/SkeletalAPI/Skeletal.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Painter.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp {
 
@@ -32,8 +33,9 @@ protected:
 	Skeletal skeletal;
 	ofSoundPlayer sounds;
 	ofImage bodyIndexImg, foregroundImg;
-	//map<> colorCoords;
-	boolean beginPainting;
+	bool beginPainting;
 	clock_t beginTime;
-	
+	ofParameter<float> value;
+	int bubblesPopped;
+	ofxGuiGroup group;
 };
