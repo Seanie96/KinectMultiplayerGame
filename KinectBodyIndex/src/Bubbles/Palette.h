@@ -12,13 +12,10 @@ public:
 	void clear();
 	void getColorsChosen(vector< pair<int, ofVec2f> > handPositions);
 	ofColor getColorChosen(int body);
-	//vector<ofColor> mergePlayerColors(map<int, ofColor> playerColor1, map<int, ofColor> playerColor2);
-	//ofColor Palette::getFirstColorOnPalette();
 
 private:
 	void changeColor(ofColor col, int body);
 	void initalisePlayerColors(int size);
-	vector< pair<ofVec2f, ofColor> > getColorPositions();
 	vector< pair<ofVec2f, ofColor> > colorPositions;
 	vector<ofColor> colors_on_palette;
 	vector< pair<int, ofColor> > playerColor;

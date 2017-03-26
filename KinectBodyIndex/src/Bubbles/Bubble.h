@@ -14,7 +14,7 @@ public:
 	float get_y();
 	float get_radius();
 	ofColor get_color();
-	const ofColor colors[5] = { ofColor(0, 0, 255, 255), ofColor(0, 255, 0, 255), ofColor(255, 0, 0, 255), ofColor(255, 255, 0, 255), ofColor(0, 255, 255, 255) };
+	const ofColor colors[5] = { ofColor(0, 0, 255, 125), ofColor(0, 255, 0, 125), ofColor(255, 0, 0, 125), ofColor(255, 255, 0, 125), ofColor(0, 255, 255, 125) };
 
 private:
 	float radius, x, y, radi;
