@@ -69,6 +69,7 @@ void Palette::getColorsChosen(vector< pair<int, ofVec2f>> handPositions) {
 			}
 		}
 	}
+	colorPositions.clear();
 }
 
 ofColor Palette::getColorChosen(int body)

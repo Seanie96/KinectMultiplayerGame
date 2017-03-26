@@ -56,6 +56,4 @@ void Skeletal::update() {
 
 void Skeletal::drawBodies() {
 	kinect.getColorSource()->draw(0, 0, previewWidth, previewHeight);
-	//kinect.getColorSource()->draw(0, 0, previewWidth, previewHeight);
-	//kinect.getBodySource()->drawProjected(0, 0, previewWidth, previewHeight);
 }
