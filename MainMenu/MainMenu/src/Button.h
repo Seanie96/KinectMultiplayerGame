@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "ofApp.h"
+#include "ofMain.h"
 
 class Button {
 

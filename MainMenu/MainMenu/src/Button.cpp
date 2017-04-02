@@ -18,7 +18,7 @@ Button::Button(float xpos, float ypos, string passText, float w, float h)
 void Button::update()
 {
 	if (buttonPressed)
-	{ 
+	{
 		buttonColor = ofColor(255, 0, 0);
 	}
 	else
@@ -30,14 +30,14 @@ void Button::update()
 void Button::draw()
 {
 	ofSetColor(buttonColor);			// draw button in red
-	ofDrawRectangle(x,y,width,height);
+	ofDrawRectangle(x, y, width, height);
 	ofSetColor(ofColor::white);				 // draw button text in white
-	myFont.drawString(buttonText, x+ 85, y+85);
+	myFont.drawString(buttonText, x + 85, y + 85);
 }
 
 /*void Button::hoverButton(bool hover)
 {
-	buttonHovered = hover;
+buttonHovered = hover;
 }*/
 
 void Button::pressButton(bool press)
