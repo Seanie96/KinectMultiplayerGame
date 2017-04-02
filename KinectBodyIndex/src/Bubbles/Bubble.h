@@ -6,7 +6,6 @@ class Bubble {
 
 public:
 	Bubble(int width, int height, float rad);
-	bool has_been_popped(float x, float y);
 	void enhance();
 	void update(int);
 	void draw();

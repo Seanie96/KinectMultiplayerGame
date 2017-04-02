@@ -3,11 +3,11 @@
 using std::rand;
 
 /*
-Creates a new instance of bubble.
-Each new instance has a randomised speed,
-radius, x position and y position (within
-the bounds of the sreeen).
-*/
+ * Creates a new instance of bubble.
+ * Each new instance has a randomised speed,
+ * radius, x position and y position (within
+ * the bounds of the sreeen).
+ */
 Bubble::Bubble(int width, int height, float rad)
 {
 	previewHeight = height;
@@ -46,33 +46,6 @@ void Bubble::update(int i)
 	}
 }
 
-bool Bubble::has_been_popped(float x_hand, float y_hand)
-{
-	if(!popped)
-	{
-		if ((x_hand < x + radius && x_hand > x - radius) && (y_hand < y + radius && y_hand > y - radius))
-		{
-			popped = true;
-			return true;
-		}
-		return false;
-	}
-	else
-	{
-		if(times_enhanced < 5)
-		{
-			enhance();
-		}
-		else 
-		{
-			times_enhanced = 0;
-			popped = false;
-			reset();
-		}
-		return false;
-	}
-}
-
 void Bubble::enhance()
 {
 	times_enhanced++;
@@ -86,16 +59,16 @@ void Bubble::draw()
 }
 
 /*
-Resets the bubble to the bottom of the screen.
-Essentially the same as creating a new bubble,
-but quicker.
-*/
+ * Resets the bubble to the bottom of the screen.
+ * Essentially the same as creating a new bubble,
+ * but quicker.
+ */
 void Bubble::reset()
 {
 	speed = rand() % (3 - 1) + 1;
 	radius = rand() % (35 - 30) + radi;
 	x = rand() % (previewWidth - 1) + 1;
-	//Y position not randomised this time, want it to appear from the bottom
+	// Y position not randomised this time, want it to appear from the bottom.
 	y = previewHeight;
 	int color_index = rand() % 5;
 	color = colors[color_index];

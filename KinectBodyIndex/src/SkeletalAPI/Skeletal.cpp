@@ -12,6 +12,10 @@ void Skeletal::setup(int width, int height) {
 	previewHeight = height;
 }
 
+/*
+ * This method gets the hand positions of all the bodies infront of the Kinect. It returns a list of pairs,
+ *  each pair containing a hand posiiton and a given body index.
+ */
 vector< pair<int, ofVec2f> > Skeletal::gethandPositions(ofxKFW2::ProjectionCoordinates proj) {
 	int numOfBodies = 0;
 	vector<ofxKFW2::Data::Body> bodies;
@@ -50,10 +54,16 @@ vector< pair<int, ofVec2f> > Skeletal::gethandPositions(ofxKFW2::ProjectionCoord
 	return handPositions;
 }
 
+/*
+ * Update the Data stream by taking another frame from the KinectV2 camera.
+ */
 void Skeletal::update() {
 	kinect.update();
 }
 
+/*
+ * Draw the frames from the kinectV2 camera.
+ */
 void Skeletal::drawBodies() {
 	kinect.getColorSource()->draw(0, 0, previewWidth, previewHeight);
 }
