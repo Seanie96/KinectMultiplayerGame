@@ -45,6 +45,32 @@ void Bubble::update(int i)
 		reset();
 	}
 }
+bool Bubble::has_been_popped(float x_hand, float y_hand)
+{
+	if (!popped)
+	{
+		if ((x_hand < x + radius && x_hand > x - radius) && (y_hand < y + radius && y_hand > y - radius))
+		{
+			popped = true;
+			return true;
+		}
+		return false;
+	}
+	else
+	{
+		if (times_enhanced < 5)
+		{
+			enhance();
+		}
+		else
+		{
+			times_enhanced = 0;
+			popped = false;
+			reset();
+		}
+		return false;
+	}
+}
 
 void Bubble::enhance()
 {
