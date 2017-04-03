@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef Menu_h
 #define Menu_h
 
@@ -9,11 +7,15 @@
 class Menu {
 
 public:
+	Menu();
 	Menu(vector<Button> buttons);
 	void update();
 	void draw();
 	ofImage somanticsLogo;
 	ofTrueTypeFont titleFont;
 	int gameNo;
+
 };
+
+
 #endif

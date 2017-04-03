@@ -5,11 +5,14 @@
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Bubble.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/SkeletalAPI/Skeletal.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Painter.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Image.h"
+
 #include "ofxGui.h"
 
 class ofApp : public ofBaseApp {
 
 public:
+	//ofApp();
 	void setup();
 	void update();
 	void draw();
