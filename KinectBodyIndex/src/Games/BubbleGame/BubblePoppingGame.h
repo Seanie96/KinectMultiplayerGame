@@ -2,7 +2,6 @@
 #define Bubble_Game_h
 
 #include "ofMain.h"
-#include "../src/Games/Game.h"
 #include "ofMain.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Bubbles/Palette.h"
 #include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Bubbles/Bubble.h"
@@ -12,12 +11,12 @@
 
 #include "ofxGui.h"
 
-class BubblePoppingGame : public Game {
+class BubblePoppingGame {
 public:
 	BubblePoppingGame();
-	void setup() override;
-	void update() override;
-	void draw() override;
+	void setup();
+	void update();
+	void draw();
 	
 private:
 	void checkForCollision(vector< pair<int, ofVec2f> > positions);
