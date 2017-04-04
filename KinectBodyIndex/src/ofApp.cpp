@@ -1,145 +1,83 @@
 #include "ofApp.h"
-
-#define NUM_BUBBLES 20
+//--------------------------------------------------------------
 
 using std::vector;
+vector<Button> buttons;
+Menu mainMenu = Menu();
 
-vector<Bubble> bubbles;
-Palette palette;
-
-int previewWidth;
-int previewHeight;
-
-/*
- *  This method initiates all of the appropiate Objects that are going to be used throughout this game session.
- */
 void ofApp::setup() {
-	/*
-	 * Get's the width and height of the screen that the game is running on.
-	 */
-	previewWidth = GetSystemMetrics(SM_CXSCREEN);
-	previewHeight = GetSystemMetrics(SM_CYSCREEN);
+	//somanticsLogo.load("C:/Users/LukeTynan/Desktop/openFrameworks/apps/myApps/MainMenu/MainMenu/bin/data/somantics1.jpg");
+	Button button1 = Button(300, 250, "Bubbles", 300, 150);
+	Button button2 = Button(300, 450, "Paint", 300, 150);
+	Button button3 = Button(700, 250, "Combo", 300, 150);
+	Button button4 = Button(700, 450, "About", 300, 150);
 
-	/*
-	 * Initiate the Skeletal API and Painter Object.
-	 */
-	skeletal.setup(previewWidth, previewHeight);	
-	painter.setup(previewWidth, previewHeight);
+	buttons.push_back(button1);
+	buttons.push_back(button2);
+	buttons.push_back(button3);
+	buttons.push_back(button4);
+	mainMenu = Menu(buttons);
 
-	/*
-	 * Add x amount of bubbles to the Bubble Popping half of the game.
-	 */
-	for (int i = 0; i < NUM_BUBBLES; i++)
+	gameNo = 4;				// draw the main menu setup screen
+	if (gameNo == 4)
 	{
-		Bubble b = Bubble(previewWidth, previewHeight, 30);
-		bubbles.push_back(b);
+		ofColor background = ofColor(255, 165, 0);
+		titleFont.loadFont("zorque.ttf", 96);
+		ofBackground(background);
 	}
 
-	int paletteWidth = previewWidth / 3;
-	int paletteHeight = previewHeight / 10;
-	int x = (previewWidth / 2) - (paletteWidth / 2);
-	int y = previewHeight - 2 * (paletteHeight);
-	palette = Palette(x, y, paletteWidth, paletteHeight);
-	sounds.load("pop_sound.mp3");
-
-	beginPainting = false;
-	bubblesPopped = 0;
-	beginTime = clock();
-	int fontSize = previewHeight / 40;
-
-	group.loadFont("AYearWithoutRain.ttf", fontSize, true, true, 0);
-	group.setBackgroundColor(0x999999);
 }
 
-/*
- * Update the Skeletal Data stream with the next frame from the KinectV2 Camera.
- * Get the handPositions from the Skeletal API, with associated body index.
- * Then, with those list of pairs, check to see if a color from the palette has been selected. I so, then associate the color selected with
- * that body index.
- * Update the count down clock, used for timing the first half of the game, the bubble popping half of the game.
- * Check for a collision between a hand position and a bubble. If a collision did happen, then add the color of that bubble to the Palette.
- * 
- */
+//--------------------------------------------------------------
 void ofApp::update() {
-	skeletal.update();
-	vector< pair<int, ofVec2f> > handPositions = skeletal.gethandPositions(ofxKFW2::ProjectionCoordinates::ColorCamera);
-	if (!beginPainting) {
-		for (int i = 0; i < bubbles.size(); i++) {
-			bubbles[i].update(i);
-		}
-		checkForCollision(handPositions);
-		float elapsedTime = float(clock() - beginTime) / CLOCKS_PER_SEC;
-		if (elapsedTime >= 5) {
-			beginPainting = true;
-		}
+	if (gameNo == 4) {
+		mainMenu.update();
 	}
-	else
+	else if(gameNo == 0)
 	{
-		palette.getColorsChosen(handPositions);
-		painter.update();
-		for (vector< pair<int, ofVec2f> >::iterator it = handPositions.begin(); it != handPositions.end(); ++it) {
-			painter.drawCircles(it->second, palette.getColorChosen(it->first), 30);
-		}
+		bubbleGame.update();
 	}
-	value.set("Number of Bubbles Burst: ", bubblesPopped); // name, default value, min, max
-	group.setup();
-	group.add(value);
-
-	group.setPosition((previewWidth / 8) * 3, 0);
-	group.setDefaultHeight(previewHeight/14);
-	group.setDefaultWidth(previewWidth/4);
-	
+	else if (gameNo == 1)
+	{
+		bubbleGame.update();
+	}
+	else if (gameNo == 2)
+	{
+		bubbleGame.update();
+	}
+	else if (gameNo == 3)
+	{
+		bubbleGame.update();
+	}
 }
 
-/*
- * Draw the view from the KinectV2, the amount of bubbles popped GUI, the Palette and the Bubbles.
- * Do this until the second half of the game begins i.e drawing the Painter and the Palette alone.
- */
+//-----------------------------------------------------------------------------------
 void ofApp::draw() {
-	ofEnableAlphaBlending();
-	glClear(GL_DEPTH_BUFFER_BIT);
-	skeletal.drawBodies();
-	group.draw();
-	if (beginPainting == true) {
-		painter.draw();
+	if (gameNo == 4) {
+		mainMenu.draw();
 	}
-	else
+	else if(gameNo == 0)
 	{
-		for (int i = 0; i < bubbles.size(); i++) {
-			bubbles[i].draw();
-		}
+		 bubbleGame.draw();
 	}
-	palette.draw();
-	ofDisableAlphaBlending();
-}
+	else if (gameNo == 1)
+	{
+		 bubbleGame.draw();
+	}
+	else if (gameNo == 2)
+	{
+		 bubbleGame.draw();
+	}
+	else if (gameNo == 3)
+	{
+		 bubbleGame.draw();
 
-/*
- * This method checks for Collisions between the hand positions give from the Skeletal API, and the bubbles on the screen.
- */
-void ofApp::checkForCollision(vector< pair<int, ofVec2f>> positions) {
-	for (vector< pair<int, ofVec2f> >::iterator handPosition = positions.begin(); handPosition != positions.end(); ++handPosition) {
-		ofVec2f pos = handPosition->second;
-		float x = pos.x;
-		float y = pos.y;
-		for (int i = 0; i < bubbles.size(); i++)
-		{
-			if(bubbles[i].has_been_popped(x, y))
-			{
-				sounds.play();
-				palette.add_color(bubbles[i].get_color());
-				bubblesPopped++;
-				cout << "bubbles popped:" << bubblesPopped << endl;
-			}
-		}
 	}
 }
-
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-	if (key == 'r') {
-		palette.clear();
-	}
+
 }
 
 //--------------------------------------------------------------
@@ -158,12 +96,55 @@ void ofApp::mouseDragged(int x, int y, int button) {
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
+void ofApp::mousePressed(int x, int y, int button)
+{
+	for (int i = 0; i < buttons.size(); i++) {
+		float button_x = buttons[i].get_x();
+		float button_y = buttons[i].get_y();
+		float button_width = buttons[i].get_width();
+		float button_height = buttons[i].get_height();
+
+		if ((x > button_x) && (x < button_x + button_width)
+			&& (y > button_y) && (y < button_y + button_height) && gameNo == 4) {
+			buttons[i].pressButton(true);
+			gameNo = i;
+			if (gameNo == 0)
+			{
+				bubbleGame.setup();
+			}
+			else if (gameNo == 1)
+			{
+				bubbleGame.setup();
+			}
+			else if (gameNo == 2)
+			{
+				bubbleGame.setup();
+			}
+			else if (gameNo == 3)
+			{
+				bubbleGame.setup();
+			}
+		}
+		else
+		{
+			buttons[i].pressButton(false);
+		}
+	}
+}
+
+
+//--------------------------------------------------------------
+void ofApp::mouseReleased(int x, int y, int button) {
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {
+void ofApp::mouseEntered(int x, int y) {
+
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseExited(int x, int y) {
 
 }
 
@@ -179,15 +160,5 @@ void ofApp::gotMessage(ofMessage msg) {
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {
 
 }

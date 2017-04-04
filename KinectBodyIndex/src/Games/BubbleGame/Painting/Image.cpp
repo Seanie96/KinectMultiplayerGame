@@ -1,4 +1,4 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Image.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Painting/Image.h"
 
 Image::Image()
 {

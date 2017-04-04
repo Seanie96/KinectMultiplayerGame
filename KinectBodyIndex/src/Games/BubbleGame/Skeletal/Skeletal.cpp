@@ -1,4 +1,4 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/SkeletalAPI/Skeletal.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Skeletal/Skeletal.h"
 
 void Skeletal::setup(int width, int height) {
 	kinect.open();

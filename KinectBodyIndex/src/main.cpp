@@ -3,7 +3,7 @@
 
 //========================================================================
 int main() {
-	ofSetupOpenGL(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), OF_FULLSCREEN);			// <-------- setup the GL context
+	ofSetupOpenGL(GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), OF_WINDOW);			// <-------- setup the GL context
 
 																										// this kicks off the running of my app
 																										// can be OF_WINDOW or OF_FULLSCREEN

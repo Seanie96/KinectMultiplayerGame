@@ -1,4 +1,4 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Painting/Painter.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Painting/Painter.h"
 
 #ifndef PI
 #define PI 3.14159265358979323846
@@ -11,7 +11,7 @@ void Painter::setup(int width, int height) {
 	imageCanvas.allocate(previewWidth, previewHeight);
 	chosenImage = Image("african-elephant-bull.png", width, height);
 
-	imageIterations = 5;
+	imageIterations = 1;
 
 	numOfCanvasPixelsUsed = 0;
 	numOfImageCanvasPixelsUsed = chosenImage.getNumOfPixels();

@@ -1,14 +1,15 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Palette.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Bubbles/Palette.h"
 
 using std::find;
-/*
-Creates a new palette with hard coded dimensions.
-If screen size comes into play we'll have to work
-them out based on that
-*/
+
 Palette::Palette() {
 }
 
+/*
+* Creates a new palette with hard coded dimensions.
+* If screen size comes into play we'll have to work
+* them out based on that.
+*/
 Palette::Palette(int x, int y, int width, int height)
 {
 	palette_width = width;
@@ -22,9 +23,9 @@ Palette::Palette(int x, int y, int width, int height)
 }
 
 /*
-Draws the palette to the screen with the currently
-available colors on it
-*/
+ * Draws the palette to the screen with the currently
+ * available colors on it
+ */
 void Palette::draw()
 {
 	ofSetHexColor(palette_color);
@@ -42,6 +43,9 @@ void Palette::draw()
 	ofSetHexColor(0xFFFFFF);
 }
 
+/*
+ * Add an ofColor object to the palette vector list.
+ */
 void Palette::add_color(ofColor col)
 {
 	//Adds the color of it's not already on the palette
@@ -51,11 +55,23 @@ void Palette::add_color(ofColor col)
 	}
 }
 
+/*
+ * Clears the palette color list.
+ */
 void Palette::clear()
 {
 	colors_on_palette.clear();
 }
 
+/*
+ * Gets the color chosen from the palette, by a body.
+ * First, this method will check if the current hand positions of the body are on a color on the palette.
+ * If it is, then the color that that body will be painting with will be changed to that the hand posiiton is on.
+ * If the hand Position is not on a color, then the previous color associated with that body, is kept.
+ * These color to body associations are maintained by using a vector list of pairs, each pair having a body index and an ofColor object.
+ * 
+ * 
+ */
 void Palette::getColorsChosen(vector< pair<int, ofVec2f>> handPositions) {
 	for (vector< pair<int, ofVec2f> >::iterator it1 = handPositions.begin(); it1 != handPositions.end(); ++it1) {
 		for (vector< pair<ofVec2f, ofColor> >::iterator it2 = colorPositions.begin(); it2 != colorPositions.end(); ++it2) {

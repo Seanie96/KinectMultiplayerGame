@@ -1,4 +1,4 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Bubbles/Bubble.h"
+#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Bubbles/Bubble.h"
 
 using std::rand;
 
