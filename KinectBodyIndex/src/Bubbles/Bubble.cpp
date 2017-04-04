@@ -46,12 +46,50 @@ void Bubble::update(int i)
 	}
 }
 
+/*
+ * Method that checks whether a bubble has been popped based on the the hand Position that is passed to the method.
+ * This is done by comparing the hand position passed in, with the position of the bubble and the radius of the bubble.
+ */
+
+bool Bubble::has_been_popped(float x_hand, float y_hand)
+{
+	if(!popped)
+	{
+		if ((x_hand < x + radius && x_hand > x - radius) && (y_hand < y + radius && y_hand > y - radius))
+		{
+			popped = true;
+			return true;
+		}
+		return false;
+	}
+	else
+	{
+		if(times_enhanced < 5)
+		{
+			enhance();
+		}
+		else 
+		{
+			times_enhanced = 0;
+			popped = false;
+			reset();
+		}
+		return false;
+	}
+}
+
+/*
+ * Method for enhancing the size of the bubble when popped.
+ */
 void Bubble::enhance()
 {
 	times_enhanced++;
 	radius += 3;
 }
 
+/*
+ * Method used for when the bubble is to be drawn to the screen.
+ */
 void Bubble::draw()
 {
 	ofSetColor(color);
