@@ -10,7 +10,7 @@ Menu::Menu() {
 Menu::Menu(vector<Button> buttons) {
 	mainButtons = buttons;
 	ofColor background = ofColor(255, 165, 0);
-	titleFont.loadFont("zorque.ttf", 96);
+	titleFont.loadFont("zorque.ttf", 70);
 	ofBackground(background);
 	//somanticsLogo.load("C:/Users/LukeTynan/Desktop/openFrameworks/apps/myApps/MainMenu/MainMenu/bin/data/somantics1.jpg");
 }
@@ -25,7 +25,7 @@ void Menu::update()
 void Menu::draw()
 {
 	ofSetColor(ofColor::white);				 // draw game title in white
-	titleFont.drawString("Synergy Gaming", 200, 200);
+	titleFont.drawString("Umzimba Movement", 200, 200);
 	//somanticsLogo.draw(290, 50);
 	for (int i = 0; i < mainButtons.size(); i++) {
 		mainButtons[i].draw();

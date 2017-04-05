@@ -110,6 +110,15 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
+    <PostBuildEvent />
+    <PreBuildEvent>
+      <Command>if not exist $(OutputPath)data mkdir $(OutputPath)data
+copy "$(ProjectDir)\src\Games\BubbleGame\Resources\Fonts\AYearWithoutRain.ttf" $(OutputPath)data
+copy "$(ProjectDir)\src\Games\BubbleGame\Resources\pop_sound.mp3" $(OutputPath)data
+copy "$(ProjectDir)\src\MainMenu\Resources\arial.ttf" $(OutputPath)data
+copy "$(ProjectDir)\src\MainMenu\Resources\zorque.ttf" $(OutputPath)data
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -152,6 +161,15 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
+    <PostBuildEvent />
+    <PreBuildEvent>
+      <Command>if not exist $(OutputPath)data mkdir $(OutputPath)data
+copy "$(ProjectDir)\src\Games\BubbleGame\Resources\Fonts\AYearWithoutRain.ttf" $(OutputPath)data
+copy "$(ProjectDir)\src\Games\BubbleGame\Resources\pop_sound.mp3" $(OutputPath)data
+copy "$(ProjectDir)\src\MainMenu\Resources\arial.ttf" $(OutputPath)data
+copy "$(ProjectDir)\src\MainMenu\Resources\zorque.ttf" $(OutputPath)data
+</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
