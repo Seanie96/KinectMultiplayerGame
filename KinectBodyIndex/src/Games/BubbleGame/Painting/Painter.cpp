@@ -11,7 +11,7 @@ void Painter::setup(int width, int height) {
 	imageCanvas.allocate(previewWidth, previewHeight);
 	chosenImage = Image("african-elephant-bull.png", width, height);
 
-	imageIterations = 1;
+	imageIterations = 3;
 
 	numOfCanvasPixelsUsed = 0;
 	numOfImageCanvasPixelsUsed = chosenImage.getNumOfPixels();
