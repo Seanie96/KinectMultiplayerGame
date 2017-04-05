@@ -8,7 +8,7 @@ The game contains one game with two minigames, a bubble popping game and a paint
 
 ### Instructions
 * Make sure the Kinect SDK is correctly installed
-* Download a copy of the game from [here]()
+* Download the latest release from [here](https://github.com/Seanie96/KinectMultiplayerGame/releases)
 * Unzip the download to a folder
 * Run *KinectBodyIndex.exe*
 
@@ -26,7 +26,7 @@ The game contains one game with two minigames, a bubble popping game and a paint
 * Right click the KinectBodyIndex solution in Visual Studio and Add > Existing Project
 * Add the ofxKinectForWindows2 project inside *openframeworks/addons/ofxKinectForWindows2/ofxKinectForWindows2Lib/*
 * In Property Manager in Visual Studio click Add Existing Property Sheet and add the property sheet inside *openframeworks/addons/ofxKinectForWindows2/*
-* In the KinectBodyIndex soulution, right click References and Add Reference, tick *ofxKinectForWindows2Lib*
+* In the KinectBodyIndex solution, right click References and Add Reference, tick *ofxKinectForWindows2Lib*
 * In Visual Studio under *src/Games/BubbleGame/Resources/* right click on *pop_sound.mp3* > Properties and change item type to Media
 * Under *src/Games/BubbleGame/Resources/Fonts* right click on *AYearWithoutRain.ttf* > Properties and change item type to Font
 * Build and run the program
