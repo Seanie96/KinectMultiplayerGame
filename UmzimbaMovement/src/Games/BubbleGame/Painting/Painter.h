@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Painting/Image.h"
+#include "Image.h"
 #include "ofMain.h"
 
 

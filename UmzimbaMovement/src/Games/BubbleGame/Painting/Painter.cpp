@@ -1,4 +1,4 @@
-#include "../apps/myApps/KinectMultiplayerGame/KinectBodyIndex/src/Games/BubbleGame/Painting/Painter.h"
+#include "Painter.h"
 
 #ifndef PI
 #define PI 3.14159265358979323846

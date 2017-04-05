@@ -1,6 +1,6 @@
 *.suo
 *.VC.db
-KinectBodyIndex/bin/*
-KinectBodyIndex/obj/*
-KinectBodyIndex/KinectbodyIndex.VC.db
-KinectBodyIndex/KinectbodyIndex.VC.VC.opendb
+UmzimbaMovement/bin/*
+UmzimbaMovement/obj/*
+UmzimbaMovement/UmzimbaMovement.VC.db
+UmzimbaMovement/UmzimbaMovement.VC.VC.opendb
