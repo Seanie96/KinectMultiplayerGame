@@ -1,3 +1,4 @@
 *.suo
 *.VC.db
 KinectBodyIndex/bin/*
+KinectBodyIndex/obj/*
