@@ -18,6 +18,7 @@ The game contains one game with two minigames, a bubble popping game and a paint
 * [OpenFrameworks](https://github.com/openframeworks/openFrameworks)
 * [Microsoft Kinect SDK 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=44561)
 * [ofxKinectForWindows2](https://github.com/elliotwoods/ofxKinectForWindows2)
+* * Fix for latest version [here](https://github.com/elliotwoods/ofxKinectForWindows2/issues/76)
 
 ### Building
 * Clone the repo into *openframeworks/apps/myApps/*
