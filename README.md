@@ -24,9 +24,9 @@ The game contains one game with two minigames, a bubble popping game and a paint
 * Clone ofxKinectForWindows2 into *openframeworks/addons/*
 * Open the KinectBodyIndex Visual Studio Solution file located in *KinectMuliplayerGame/KinectBodyIndex/*
 * Right click the KinectBodyIndex solution in Visual Studio and Add > Existing Project
-* Add the ofxKinectForWindows2 project inside openframeworks/addons/ofxKinectForWindows2/ofxKinectForWindows2Lib/
-* In Property Manager in Visual Studio click Add Existing Property Sheet and add the property sheet inside openframeworks/addons/ofxKinectForWindows2/
-* In the KinectBodyIndex soulution, right click References and Add Reference, tick ofxKinectForWindows2Lib
-* In Visual Studio under src/Games/BubbleGame/Resources/ right click on pop_sound.mp3 > Properties and change item type to Media
-* Under src/Games/BubbleGame/Resources/Fonts right click on AYearWithoutRain.ttf > Properties and change item type to Font
+* Add the ofxKinectForWindows2 project inside *openframeworks/addons/ofxKinectForWindows2/ofxKinectForWindows2Lib/*
+* In Property Manager in Visual Studio click Add Existing Property Sheet and add the property sheet inside *openframeworks/addons/ofxKinectForWindows2/*
+* In the KinectBodyIndex soulution, right click References and Add Reference, tick *ofxKinectForWindows2Lib*
+* In Visual Studio under *src/Games/BubbleGame/Resources/* right click on *pop_sound.mp3* > Properties and change item type to Media
+* Under *src/Games/BubbleGame/Resources/Fonts* right click on *AYearWithoutRain.ttf* > Properties and change item type to Font
 * Build and run the program
