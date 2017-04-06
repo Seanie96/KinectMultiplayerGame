@@ -28,6 +28,6 @@ public:
 
 private:
 	ofTrueTypeFont titleFont;
-	int gameNo;
+	int screenNo;
 	BubblePoppingGame bubbleGame;
 };

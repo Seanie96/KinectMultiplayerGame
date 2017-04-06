@@ -17,6 +17,8 @@ BubblePoppingGame::BubblePoppingGame()
 
 void BubblePoppingGame::setup()
 {
+	back_button = Button(20, 20, "Back", 90, 50);
+
 	/*
 	* Get's the width and height of the screen that the game is running on.
 	*/
@@ -57,6 +59,7 @@ void BubblePoppingGame::setup()
 
 void BubblePoppingGame::update()
 {
+	back_button.update();
 	skeletal.update();
 	vector< pair<int, ofVec2f> > handPositions = skeletal.gethandPositions(ofxKFW2::ProjectionCoordinates::ColorCamera);
 	if (!beginPainting) {
@@ -88,6 +91,7 @@ void BubblePoppingGame::update()
 
 void BubblePoppingGame::draw()
 {
+	back_button.draw(2);
 	ofEnableAlphaBlending();
 	glClear(GL_DEPTH_BUFFER_BIT);
 	skeletal.drawBodies();

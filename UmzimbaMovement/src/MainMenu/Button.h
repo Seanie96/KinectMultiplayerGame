@@ -8,9 +8,10 @@
 class Button {
 
 public:
+	Button();
 	Button(float xpos, float ypos, string passText, float w, float h);
 	void update();
-	void draw();
+	void draw(int screen);
 	void pressButton(bool press);
 	float get_x();
 	float get_y();

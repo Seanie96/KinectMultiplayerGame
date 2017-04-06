@@ -28,6 +28,9 @@ void Menu::draw()
 	titleFont.drawString("Umzimba Movement", 200, 200);
 	//somanticsLogo.draw(290, 50);
 	for (int i = 0; i < mainButtons.size(); i++) {
-		mainButtons[i].draw();
+		if (i != 2)			// do not draw the back button on the main screen
+		{
+			mainButtons[i].draw(1);
+		}
 	}
 }

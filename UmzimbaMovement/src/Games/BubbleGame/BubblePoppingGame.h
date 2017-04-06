@@ -8,6 +8,7 @@
 #include "Skeletal/Skeletal.h"
 #include "Painting/Painter.h"
 #include "Painting/Image.h"
+#include "../src/MainMenu/Button.h"
 
 #include "ofxGui.h"
 
@@ -31,6 +32,7 @@ protected:
 	ofParameter<float> value;
 	int bubblesPopped;
 	ofxGuiGroup group;
+	Button back_button;
 };
 
 

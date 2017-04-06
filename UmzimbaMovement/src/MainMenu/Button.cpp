@@ -1,5 +1,10 @@
 #include "Button.h"
 
+Button::Button()
+{
+	// do nothing
+}
+
 Button::Button(float xpos, float ypos, string passText, float w, float h)
 {
 	x = xpos;
@@ -27,12 +32,19 @@ void Button::update()
 	}
 }
 
-void Button::draw()
+void Button::draw(int screenNo)
 {
 	ofSetColor(buttonColor);			// draw button in red
 	ofDrawRectangle(x, y, width, height);
-	ofSetColor(ofColor::white);				 // draw button text in white
-	myFont.drawString(buttonText, x + 85, y + 85);
+	ofSetColor(ofColor::white);	// draw button text in white
+	if (screenNo == 1)
+	{
+		myFont.drawString(buttonText, x + 80, y + 85);
+	}
+	else
+	{
+		myFont.drawString(buttonText, x + 12, y + 40);					// game screen text for back button
+	}
 }
 
 /*void Button::hoverButton(bool hover)

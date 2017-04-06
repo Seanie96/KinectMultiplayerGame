@@ -7,19 +7,22 @@ Menu mainMenu = Menu();
 
 void ofApp::setup() {
 	//somanticsLogo.load("C:/Users/LukeTynan/Desktop/openFrameworks/apps/myApps/MainMenu/MainMenu/bin/data/somantics1.jpg");
-	Button button1 = Button(300, 250, "Bubbles", 300, 150);
-	Button button2 = Button(300, 450, "Paint", 300, 150);
-	Button button3 = Button(700, 250, "Combo", 300, 150);
-	Button button4 = Button(700, 450, "About", 300, 150);
+	Button button1 = Button(300, 350, "Bubble Game", 300, 150);
+	Button button2 = Button(700, 350, "About", 300, 150);
+	//Button button3 = Button(700, 250, "Combo", 300, 150);
+	//Button button4 = Button(700, 450, "About", 300, 150);
+
+	Button back_button = Button(20, 20, "Back", 100, 50);
 
 	buttons.push_back(button1);
 	buttons.push_back(button2);
-	buttons.push_back(button3);
-	buttons.push_back(button4);
+	buttons.push_back(back_button);
+	//buttons.push_back(button3);
+	//buttons.push_back(button4);
 	mainMenu = Menu(buttons);
 
-	gameNo = 4;				// draw the main menu setup screen
-	if (gameNo == 4)
+	screenNo = 4;				// draw the main menu setup screen
+	if (screenNo == 4)
 	{
 		ofColor background = ofColor(255, 165, 0);
 		titleFont.loadFont("zorque.ttf", 96);
@@ -30,22 +33,22 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
-	if (gameNo == 4) {
+	if (screenNo == 4) {
 		mainMenu.update();
 	}
-	else if(gameNo == 0)
+	else if(screenNo == 0)
 	{
 		bubbleGame.update();
 	}
-	else if (gameNo == 1)
+	else if (screenNo == 1)
 	{
 		bubbleGame.update();
 	}
-	else if (gameNo == 2)
+	else if (screenNo == 2)
 	{
 		bubbleGame.update();
 	}
-	else if (gameNo == 3)
+	else if (screenNo == 3)
 	{
 		bubbleGame.update();
 	}
@@ -53,22 +56,22 @@ void ofApp::update() {
 
 //-----------------------------------------------------------------------------------
 void ofApp::draw() {
-	if (gameNo == 4) {
+	if (screenNo == 4) {
 		mainMenu.draw();
 	}
-	else if(gameNo == 0)
+	else if(screenNo == 0)
 	{
 		 bubbleGame.draw();
 	}
-	else if (gameNo == 1)
+	else if (screenNo == 1)
 	{
 		 bubbleGame.draw();
 	}
-	else if (gameNo == 2)
+	else if (screenNo == 2)
 	{
 		 bubbleGame.draw();
 	}
-	else if (gameNo == 3)
+	else if (screenNo == 3)
 	{
 		 bubbleGame.draw();
 
@@ -105,30 +108,37 @@ void ofApp::mousePressed(int x, int y, int button)
 		float button_height = buttons[i].get_height();
 
 		if ((x > button_x) && (x < button_x + button_width)
-			&& (y > button_y) && (y < button_y + button_height) && gameNo == 4) {
+			&& (y > button_y) && (y < button_y + button_height) && screenNo == 4) {
 			buttons[i].pressButton(true);
-			gameNo = i;
-			if (gameNo == 0)
+			screenNo = i;
+			if (screenNo == 0)
 			{
 				bubbleGame.setup();
 			}
-			else if (gameNo == 1)
+			else if (screenNo == 1)
 			{
 				bubbleGame.setup();
 			}
-			else if (gameNo == 2)
+			else if (screenNo == 2)
 			{
 				bubbleGame.setup();
 			}
-			else if (gameNo == 3)
+			else if (screenNo == 3)
 			{
 				bubbleGame.setup();
 			}
+		}
+		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 0) {
+			screenNo = 4;
+			mainMenu.draw();
+			mainMenu.update();
 		}
 		else
 		{
 			buttons[i].pressButton(false);
 		}
+		
+
 	}
 }
 
