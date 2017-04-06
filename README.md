@@ -22,5 +22,5 @@ The game contains one game with two minigames, a bubble popping game and a paint
 * [Zorque.ttf](http://www.dafont.com/zorque.font)
 
 ### Building
-* Copy *arail.ttf* from your system fonts and *zorque.ttf* to  *UmzimbaMovement/bin/data/*
-* Build and run the program
+* Make sure the Kinect SDK is correctly installed
+* Build the program using Visual Studio
