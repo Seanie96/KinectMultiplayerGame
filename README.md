@@ -23,4 +23,7 @@ The game contains one game with two minigames, a bubble popping game and a paint
 
 ### Building
 * Make sure the Kinect SDK is correctly installed
+* Clone the repo into *openframeworks/apps/myApps/*
+* Clone ofxKinectForWindows2 into *openframeworks/addons/*
+* Perform the included fixes for ofxKinectForWindows2
 * Build the program using Visual Studio
