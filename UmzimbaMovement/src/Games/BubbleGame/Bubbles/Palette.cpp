@@ -26,6 +26,7 @@ Palette::Palette(int x, int y, int width, int height)
  * Draws the palette to the screen with the currently
  * available colors on it
  */
+
 void Palette::draw()
 {
 	ofSetHexColor(palette_color);
@@ -46,6 +47,7 @@ void Palette::draw()
 /*
  * Add an ofColor object to the palette vector list.
  */
+
 void Palette::add_color(ofColor col)
 {
 	//Adds the color of it's not already on the palette
@@ -69,9 +71,8 @@ void Palette::clear()
  * If it is, then the color that that body will be painting with will be changed to that the hand posiiton is on.
  * If the hand Position is not on a color, then the previous color associated with that body, is kept.
  * These color to body associations are maintained by using a vector list of pairs, each pair having a body index and an ofColor object.
- * 
- * 
  */
+
 void Palette::getColorsChosen(vector< pair<int, ofVec2f>> handPositions) {
 	for (vector< pair<int, ofVec2f> >::iterator it1 = handPositions.begin(); it1 != handPositions.end(); ++it1) {
 		for (vector< pair<ofVec2f, ofColor> >::iterator it2 = colorPositions.begin(); it2 != colorPositions.end(); ++it2) {
@@ -88,6 +89,11 @@ void Palette::getColorsChosen(vector< pair<int, ofVec2f>> handPositions) {
 	colorPositions.clear();
 }
 
+/*
+ * Gets the color that a perticular body should be painting with. It does this by 
+ * keeping track of the color and body index pairs using a vector<int, ofColo> list.
+ */
+
 ofColor Palette::getColorChosen(int body)
 {
 	for (vector< pair<int, ofColor> >::iterator it = playerColor.begin(); it != playerColor.end(); ++it) {
@@ -98,6 +104,11 @@ ofColor Palette::getColorChosen(int body)
 	}
 }
 
+/*
+ * Changes the color that a user will paint with, by storing a different ofColor object at the index of 
+ * a vector<int, ofColor> list, which resembles the that body/user.
+ */
+
 void Palette::changeColor(ofColor col, int body)
 {
 	for (vector< pair<int, ofColor> >::iterator it = playerColor.begin(); it != playerColor.end(); ++it) {
@@ -107,6 +118,10 @@ void Palette::changeColor(ofColor col, int body)
 		}
 	}
 }
+
+/*
+ * Stores black as the default colors of all bodies recognised by the kinect.
+ */
 
 void Palette::initalisePlayerColors(int size)
 {

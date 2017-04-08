@@ -6,17 +6,24 @@ vector<Button> buttons;
 Menu mainMenu = Menu();
 AboutPage about = AboutPage();
 
+/*
+ * Sets up the main game, uses a vector too hold a set of buttons.
+ * Each game will have a button, and the main menu.
+ * 
+ */
 void ofApp::setup() {
-	//somanticsLogo.load("C:/Users/LukeTynan/Desktop/openFrameworks/apps/myApps/MainMenu/MainMenu/bin/data/somantics1.jpg");
-	Button button1 = Button(300, 350, "Bubble Game", 300, 150);
-	Button button2 = Button(700, 350, "About", 300, 150);
+	int width = GetSystemMetrics(SM_CXSCREEN);
+	int height = GetSystemMetrics(SM_CYSCREEN);
+
+	Button button1 = Button((width / 6) * 1.5, (height / 8) * 5, "Bubble Game", width / 6, height / 7);
+	Button button2 = Button((width / 5) * 3, (height / 8) * 5, "About", width / 6, height / 7);
 
 	Button back_button = Button(20, 20, "Back", 100, 50);
 
 	buttons.push_back(button1);
 	buttons.push_back(button2);
 	buttons.push_back(back_button);
-	mainMenu = Menu(buttons);
+	mainMenu = Menu(buttons, width, height);
 
 	screenNo = 2;				// draw the main menu screen on startup
 	if (screenNo == 2)
@@ -28,7 +35,10 @@ void ofApp::setup() {
 
 }
 
-//--------------------------------------------------------------
+/*
+ * Checks what current screen is being drawn. Then it will update that game/screen.
+ */
+
 void ofApp::update() {
 	if (screenNo == 2) {
 		mainMenu.update();
@@ -43,7 +53,10 @@ void ofApp::update() {
 	}
 }
 
-//-----------------------------------------------------------------------------------
+/*
+ * draws the current game/Screen.
+ */
+
 void ofApp::draw() {
 	if (screenNo == 2) {
 		mainMenu.draw();
@@ -58,27 +71,13 @@ void ofApp::draw() {
 	}
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key) {
+/*
+ * Checks to see whether button has been pressed. If one has been pressed then the Application will shift to the next according screen.
+ * i.e if a game is pressed, the game will initiate. If a back button is pressed, then the user is brought to the main-menu.
+ * 
+ * If a button is pressed, the screenNo variable is changed to a number that sybmolises that screen. 2 = main menu, 0 = the bubble popping game, 1 = About page.
+ */
 
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {
-
-}
-
-//--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button)
 {
 	for (int i = 0; i < buttons.size(); i++) {
@@ -99,13 +98,7 @@ void ofApp::mousePressed(int x, int y, int button)
 				about.setup();
 			}
 		}
-		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 0 && i==2) {
-			buttons[i].pressButton(true);
-			screenNo = 2;
-			mainMenu.draw();
-			mainMenu.update();
-		}
-		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 1 && i==2) {
+		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && (screenNo == 0 || screenNo == 1) && i==2) {
 			buttons[i].pressButton(true);
 			screenNo = 2;
 			mainMenu.draw();
@@ -118,35 +111,4 @@ void ofApp::mousePressed(int x, int y, int button)
 		
 
 	}
-}
-
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {
-
 }

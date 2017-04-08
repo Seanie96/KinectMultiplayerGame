@@ -57,6 +57,10 @@ void Button::pressButton(bool press)
 	buttonPressed = press;
 }
 
+/*
+ * Get Methods......
+ */
+
 float Button::get_x() { return x; }
 
 float Button::get_y() { return y; }

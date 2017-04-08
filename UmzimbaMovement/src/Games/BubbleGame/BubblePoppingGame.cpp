@@ -12,7 +12,7 @@ int previewHeight;
 
 BubblePoppingGame::BubblePoppingGame()
 {
-	// do nothing
+	// does nothing. VS complains that there is a missing contructor, that's why this is here!
 }
 
 void BubblePoppingGame::setup()
@@ -56,6 +56,11 @@ void BubblePoppingGame::setup()
 	group.setBackgroundColor(0x999999);
 }
 
+/*
+ * Updates the SkeletalAPI with the latest data stream from the kinect.
+ * Updates the Colors on the Palette.
+ * Updates the screen, with colors that were drawn to it by the users.
+ */
 
 void BubblePoppingGame::update()
 {
@@ -89,6 +94,9 @@ void BubblePoppingGame::update()
 	group.setDefaultWidth(previewWidth / 4);
 }
 
+/*
+ * Main Aspects of the game are drawn.... 
+ */
 void BubblePoppingGame::draw()
 {
 	back_button.draw(0);
@@ -110,7 +118,7 @@ void BubblePoppingGame::draw()
 }
 
 /*
-* This method checks for Collisions between the hand positions give from the Skeletal API, and the bubbles on the screen.
+* This method checks for Collisions between the hand positions given from the Skeletal API, and the bubbles on the screen.
 */
 void BubblePoppingGame::checkForCollision(vector< pair<int, ofVec2f>> positions) {
 	for (vector< pair<int, ofVec2f> >::iterator handPosition = positions.begin(); handPosition != positions.end(); ++handPosition) {

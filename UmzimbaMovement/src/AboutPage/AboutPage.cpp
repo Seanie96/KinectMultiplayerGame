@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 
 AboutPage::AboutPage() {
-
+	// does nothing. VS complains that there is a missing contructor, that's why this is here!
 }
 
 void AboutPage::setup()
