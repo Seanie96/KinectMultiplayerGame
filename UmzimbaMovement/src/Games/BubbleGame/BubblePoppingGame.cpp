@@ -91,7 +91,7 @@ void BubblePoppingGame::update()
 
 void BubblePoppingGame::draw()
 {
-	back_button.draw(2);
+	back_button.draw(0);
 	ofEnableAlphaBlending();
 	glClear(GL_DEPTH_BUFFER_BIT);
 	skeletal.drawBodies();

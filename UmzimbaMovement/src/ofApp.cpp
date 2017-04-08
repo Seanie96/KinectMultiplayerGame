@@ -4,25 +4,22 @@
 using std::vector;
 vector<Button> buttons;
 Menu mainMenu = Menu();
+AboutPage about = AboutPage();
 
 void ofApp::setup() {
 	//somanticsLogo.load("C:/Users/LukeTynan/Desktop/openFrameworks/apps/myApps/MainMenu/MainMenu/bin/data/somantics1.jpg");
 	Button button1 = Button(300, 350, "Bubble Game", 300, 150);
 	Button button2 = Button(700, 350, "About", 300, 150);
-	//Button button3 = Button(700, 250, "Combo", 300, 150);
-	//Button button4 = Button(700, 450, "About", 300, 150);
 
 	Button back_button = Button(20, 20, "Back", 100, 50);
 
 	buttons.push_back(button1);
 	buttons.push_back(button2);
 	buttons.push_back(back_button);
-	//buttons.push_back(button3);
-	//buttons.push_back(button4);
 	mainMenu = Menu(buttons);
 
-	screenNo = 4;				// draw the main menu setup screen
-	if (screenNo == 4)
+	screenNo = 2;				// draw the main menu screen on startup
+	if (screenNo == 2)
 	{
 		ofColor background = ofColor(255, 165, 0);
 		titleFont.loadFont("zorque.ttf", 96);
@@ -33,7 +30,7 @@ void ofApp::setup() {
 
 //--------------------------------------------------------------
 void ofApp::update() {
-	if (screenNo == 4) {
+	if (screenNo == 2) {
 		mainMenu.update();
 	}
 	else if(screenNo == 0)
@@ -42,21 +39,13 @@ void ofApp::update() {
 	}
 	else if (screenNo == 1)
 	{
-		bubbleGame.update();
-	}
-	else if (screenNo == 2)
-	{
-		bubbleGame.update();
-	}
-	else if (screenNo == 3)
-	{
-		bubbleGame.update();
+		about.update();
 	}
 }
 
 //-----------------------------------------------------------------------------------
 void ofApp::draw() {
-	if (screenNo == 4) {
+	if (screenNo == 2) {
 		mainMenu.draw();
 	}
 	else if(screenNo == 0)
@@ -65,16 +54,7 @@ void ofApp::draw() {
 	}
 	else if (screenNo == 1)
 	{
-		 bubbleGame.draw();
-	}
-	else if (screenNo == 2)
-	{
-		 bubbleGame.draw();
-	}
-	else if (screenNo == 3)
-	{
-		 bubbleGame.draw();
-
+		 about.draw();
 	}
 }
 
@@ -107,8 +87,7 @@ void ofApp::mousePressed(int x, int y, int button)
 		float button_width = buttons[i].get_width();
 		float button_height = buttons[i].get_height();
 
-		if ((x > button_x) && (x < button_x + button_width)
-			&& (y > button_y) && (y < button_y + button_height) && screenNo == 4) {
+		if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 2) {
 			buttons[i].pressButton(true);
 			screenNo = i;
 			if (screenNo == 0)
@@ -117,19 +96,18 @@ void ofApp::mousePressed(int x, int y, int button)
 			}
 			else if (screenNo == 1)
 			{
-				bubbleGame.setup();
-			}
-			else if (screenNo == 2)
-			{
-				bubbleGame.setup();
-			}
-			else if (screenNo == 3)
-			{
-				bubbleGame.setup();
+				about.setup();
 			}
 		}
-		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 0) {
-			screenNo = 4;
+		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 0 && i==2) {
+			buttons[i].pressButton(true);
+			screenNo = 2;
+			mainMenu.draw();
+			mainMenu.update();
+		}
+		else if ((x > button_x) && (x < button_x + button_width) && (y > button_y) && (y < button_y + button_height) && screenNo == 1 && i==2) {
+			buttons[i].pressButton(true);
+			screenNo = 2;
 			mainMenu.draw();
 			mainMenu.update();
 		}

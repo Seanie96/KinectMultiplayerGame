@@ -4,6 +4,7 @@
 #include "MainMenu/Menu.h"
 #include "MainMenu/Button.h"
 #include "Games/BubbleGame/BubblePoppingGame.h"
+#include "AboutPage/AboutPage.h"
 
 #include <vector>
 

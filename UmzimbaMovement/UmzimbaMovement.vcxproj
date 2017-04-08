@@ -193,6 +193,7 @@ copy "$(ProjectDir)\src\MainMenu\Resources\zorque.ttf" $(OutputPath)data
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AboutPage\AboutPage.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Games\BubbleGame\BubblePoppingGame.cpp" />
@@ -219,6 +220,7 @@ copy "$(ProjectDir)\src\MainMenu\Resources\zorque.ttf" $(OutputPath)data
     <ClCompile Include="..\..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\AboutPage\AboutPage.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Games\BubbleGame\BubblePoppingGame.h" />
     <ClInclude Include="src\Games\BubbleGame\Bubbles\Bubble.h" />
