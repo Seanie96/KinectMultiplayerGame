@@ -4,26 +4,26 @@ The game contains one game with two minigames, a bubble popping game and a paint
 
 ## Downloading and Running the Game
 ### Dependencies
-* [Microsoft Kinect SDK 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=44561)
+- [Microsoft Kinect SDK 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=44561)
 
 ### Instructions
-* Make sure the Kinect SDK is correctly installed
-* Download the latest release from [here](https://github.com/Seanie96/KinectMultiplayerGame/releases)
-* Unzip the download to a folder
-* Run *UmzimbaMovement.exe*
+- Make sure the Kinect SDK is correctly installed
+- Download the latest release from [here](https://github.com/Seanie96/KinectMultiplayerGame/releases)
+- Unzip the download to a folder
+- Run *UmzimbaMovement.exe*
 
 ## Building From Source
 ### Dependencies
-* [Vistual Studio 2015](https://www.visualstudio.com/downloads/)
-* [OpenFrameworks](https://github.com/openframeworks/openFrameworks)
-* [Microsoft Kinect SDK 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=44561)
-* [ofxKinectForWindows2](https://github.com/elliotwoods/ofxKinectForWindows2)
-* * Fix for latest version [here](https://github.com/elliotwoods/ofxKinectForWindows2/issues/76)
-* [Zorque.ttf](http://www.dafont.com/zorque.font)
+- [Vistual Studio 2015](https://www.visualstudio.com/downloads/)
+- [OpenFrameworks](https://github.com/openframeworks/openFrameworks)
+- [Microsoft Kinect SDK 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=44561)
+- [ofxKinectForWindows2](https://github.com/elliotwoods/ofxKinectForWindows2)
+    - Fix for latest version [here](https://github.com/elliotwoods/ofxKinectForWindows2/issues/76)
+- [Zorque.ttf](http://www.dafont.com/zorque.font)
 
 ### Building
-* Make sure the Kinect SDK is correctly installed
-* Clone the repo into *openframeworks/apps/myApps/*
-* Clone ofxKinectForWindows2 into *openframeworks/addons/*
-* Perform the included fixes for ofxKinectForWindows2
-* Build the program using Visual Studio
+- Make sure the Kinect SDK is correctly installed
+- Clone the repo into *openframeworks/apps/myApps/*
+- Clone ofxKinectForWindows2 into *openframeworks/addons/*
+- Perform the included fixes for ofxKinectForWindows2
+- Build the program using Visual Studio
